@@ -1,5 +1,3 @@
-"# gRPC_Demo_SpringBoot" 
-
 ## Calculator gRPC Demo
 
 This project demonstrates a simple calculator application using gRPC (Google Remote Procedure Call) in a Spring Boot environment. It provides a server-side implementation for addition and a client application to interact with the server.
@@ -20,7 +18,7 @@ This project demonstrates a simple calculator application using gRPC (Google Rem
 
 ### Setup Instructions
 1. Clone the repository to your local machine.
-2. Ensure that Java and Maven are properly installed and configured.
+2. Ensure that Java and Gradle are properly installed and configured.
 3. Set up PostgreSQL if you plan to use Spring Boot's data dependencies. Update the `application.properties` file with your database configurations.
 4. Import the project into your IDE.
 5. Run `CalculatorGRpcDemoApplication.java` to start the gRPC server.
@@ -38,7 +36,4 @@ This project demonstrates a simple calculator application using gRPC (Google Rem
 - Run the server application (`CalculatorGRpcDemoApplication.java`).
 - Choose the client application (`HelloClient.java` or `CalculatorClient.java`) to interact with the server.
 - Follow the on-screen instructions to input data and receive responses from the server.
-
-### Contributing
-Contributions are welcome! Feel free to submit pull requests or open issues if you encounter any problems or have suggestions for improvements.
 
