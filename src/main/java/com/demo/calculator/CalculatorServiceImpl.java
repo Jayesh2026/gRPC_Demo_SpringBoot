@@ -8,7 +8,7 @@ import com.proto.calculator.AddResponse;
 
 import io.grpc.stub.StreamObserver;
 
-@Service
+// @Service
 public class CalculatorServiceImpl extends ProtoAllServicesImplBase {
 
     /*
