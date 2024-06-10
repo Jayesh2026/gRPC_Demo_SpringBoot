@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.proto";
+option java_multiple_files = true;
+
+import "hello/hello.proto";
+import "calculator/calculator.proto";
+
+
+service ProtoAllServices {
+
+    rpc sayHello (HelloRequest) returns (HelloResponse); // unary streaming
+
+    rpc add (AddRequest) returns (AddResponse); // unary straming
+
+}
