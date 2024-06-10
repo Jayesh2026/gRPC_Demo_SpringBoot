@@ -42,5 +42,3 @@ This project demonstrates a simple calculator application using gRPC (Google Rem
 ### Contributing
 Contributions are welcome! Feel free to submit pull requests or open issues if you encounter any problems or have suggestions for improvements.
 
-### License
-This project is licensed under the [MIT License](LICENSE).
