@@ -1,0 +1,73 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
+		/* it enables functionality related to Protocol Buffers, allowing you to compile */
+	id 'com.google.protobuf' version '0.9.4'
+}
+
+group = 'com.demo'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+/* protobuf plugins */
+protobuf {
+
+	/* set protobuf compiler version */
+	protoc {
+		artifact = "com.google.protobuf:protoc:3.25.1"
+	}
+	/* protobuf compiler that generate the code from .proto file for java code */
+	plugins {
+		grpc {
+		artifact = 'io.grpc:protoc-gen-grpc-java:1.64.0'
+		}
+	}
+	/* use for gRPC plugins applied to all protobuf file */
+	generateProtoTasks {
+		all()*.plugins {
+		grpc {}
+		}
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	
+	/* runtime support for gRPC communication on Nesty transport */
+	/* Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients. */
+	implementation 'io.grpc:grpc-netty-shaded:1.64.0'
+	/* used for Serialization AND Deserialization protobuf messages at communication time */
+	implementation 'io.grpc:grpc-protobuf:1.64.0'
+	/* used for streaming support */
+	implementation 'io.grpc:grpc-stub:1.64.0'
+	/* used for code generation purposes */
+	implementation 'javax.annotation:javax.annotation-api:1.3.2'
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
