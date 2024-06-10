@@ -1,5 +1,7 @@
 package com.demo.service;
 
+import org.springframework.stereotype.Service;
+
 import com.proto.ProtoAllServicesGrpc.ProtoAllServicesImplBase;
 import com.proto.calculator.AddRequest;
 import com.proto.calculator.AddResponse;
@@ -8,6 +10,7 @@ import com.proto.hello.HelloResponse;
 
 import io.grpc.stub.StreamObserver;
 
+@Service
 public class AllServicesImpl extends ProtoAllServicesImplBase {
 
     /*
